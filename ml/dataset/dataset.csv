@@ -1,0 +1,84 @@
+code,label
+"db.execute('SELECT * FROM users WHERE id=' + user_id)",SQLi
+"cursor.execute('SELECT name FROM items WHERE id=' + item_id)",SQLi
+"query = 'DELETE FROM logs WHERE level=' + level; db.run(query)",SQLi
+"cmd = 'UPDATE users SET pass=' + pwd + ' WHERE id=1'; db(cmd)",SQLi
+"conn.execute('SELECT * FROM cards WHERE num=' + card_num)",SQLi
+"sql = 'SELECT info FROM data WHERE key=' + key; cursor.execute(sql)",SQLi
+"db.execute('SELECT secret FROM vault WHERE id=' + id)",SQLi
+"q = 'SELECT * FROM ' + table_name; cursor.execute(q)",SQLi
+"cursor.execute('SELECT email FROM users WHERE user=' + name)",SQLi
+"res = db.query('SELECT * FROM news WHERE slug=' + slug)",SQLi
+"sql = 'INSERT INTO msgs VALUES (' + msg + ')'; db.execute(sql)",SQLi
+"cursor.execute('SELECT * FROM settings WHERE user_id=' + uid)",SQLi
+"query = 'SELECT balance FROM acc WHERE id=' + acc_id; db.exec(query)",SQLi
+"db.execute('SELECT * FROM files WHERE owner=' + owner)",SQLi
+"sql = 'SELECT path FROM docs WHERE name=' + doc_name; db.execute(sql)",SQLi
+"cursor.execute('DELETE FROM sessions WHERE sid=' + session_id)",SQLi
+"q = 'SELECT prod FROM store WHERE id=' + str(p_id); db.execute(q)",SQLi
+"db.execute('SELECT * FROM users WHERE login=' + username)",SQLi
+"sql = 'SELECT id FROM tags WHERE tag=' + t; cursor.execute(sql)",SQLi
+"cursor.execute('UPDATE profiles SET bio=' + bio + ' WHERE id=' + uid)",SQLi
+
+"os.system('ls -la ' + directory)",CommandInjection
+"subprocess.call('ping ' + host, shell=True)",CommandInjection
+"os.popen('cat ' + filename).read()",CommandInjection
+"subprocess.run('echo ' + message, shell=True)",CommandInjection
+"os.system('rm -rf ' + target_path)",CommandInjection
+"subprocess.Popen('curl ' + url, shell=True)",CommandInjection
+"cmd = 'unzip ' + uploaded_file; os.system(cmd)",CommandInjection
+"os.system('nslookup ' + domain)",CommandInjection
+"subprocess.check_output('whois ' + site, shell=True)",CommandInjection
+"os.system('gzip ' + log_file)",CommandInjection
+"subprocess.run('ps aux | grep ' + proc, shell=True)",CommandInjection
+"os.popen('git checkout ' + branch).read()",CommandInjection
+"os.system('sendmail ' + recipient)",CommandInjection
+"subprocess.call('tar -xzf ' + archive, shell=True)",CommandInjection
+"os.system('python script.py --input ' + data)",CommandInjection
+"os.popen('chmod 777 ' + path)",CommandInjection
+"subprocess.run('mkdir ' + folder_name, shell=True)",CommandInjection
+"os.system('ffmpeg -i ' + video + ' out.mp4')",CommandInjection
+"subprocess.check_call('dig ' + server + ' ' + host, shell=True)",CommandInjection
+"os.system('find . -name ' + pattern)",CommandInjection
+
+"aws_key = 'AKIAEXAMPLE123456789'",Hardcoded
+"password = 'Admin@123'",Hardcoded
+"api_token = '5f9d7a2b8c4e4b3a9e1d6c5b4a3d2e1f'",Hardcoded
+"SECRET_KEY = 'super-secret-django-key-123'",Hardcoded
+"db_uri = 'postgresql://user:pass@localhost/db'",Hardcoded
+"stripe_key = 'sk_live_example_key'",Hardcoded
+"slack_webhook = 'https://hooks.slack.com/example'",Hardcoded
+"gh_token = 'ghp_exampletoken123456'",Hardcoded
+"private_key = 'RSA_PRIVATE_KEY_EXAMPLE'",Hardcoded
+"ftp_pw = 'ftp_backup_secure_2024'",Hardcoded
+"auth_header = 'Bearer examplejwttoken'",Hardcoded
+"redis_pass = 'fallback_redis_pw_abc'",Hardcoded
+"mail_pwd = 'smtp_password_here'",Hardcoded
+"app_secret = 'XY78_lkj90_ASW12'",Hardcoded
+"root_password = 'toor'",Hardcoded
+"mysql_root_pass = 'root_mysql_pass_99'",Hardcoded
+"access_token = 'ya29.a0ExampleToken'",Hardcoded
+"encryption_iv = '1234567890123456'",Hardcoded
+"jwt_secret = 'development-only-secret-key'",Hardcoded
+"client_secret = 'GOCSPX-example-secret'",Hardcoded
+
+"cursor.execute('SELECT * FROM users WHERE id=?',(uid,))",Safe
+"db.execute('SELECT name FROM items WHERE id=?',(item_id,))",Safe
+"subprocess.run(['ls','-la',directory])",Safe
+"password = os.getenv('DB_PASSWORD')",Safe
+"subprocess.call(['ping','-c','1',host])",Safe
+"cursor.execute('UPDATE users SET email=? WHERE id=?',(e,u))",Safe
+"api_key = os.environ.get('API_KEY')",Safe
+"db.run('DELETE FROM logs WHERE level=?',(l,))",Safe
+"subprocess.Popen(['curl','-s',url])",Safe
+"secret = config.get('SECRET_KEY')",Safe
+"cursor.execute('SELECT * FROM data WHERE key=?',(key,))",Safe
+"subprocess.run(['gzip',log_file])",Safe
+"db.execute('SELECT * FROM users WHERE id=?',(u,))",Safe
+"target = shlex.quote(filename); os.system('cat ' + target)",Safe
+"aws_id = os.environ.get('AWS_ACCESS_KEY_ID')",Safe
+"cursor.execute('INSERT INTO msgs (txt) VALUES (?)',(m,))",Safe
+"subprocess.check_output(['whois',domain])",Safe
+"db.execute('SELECT balance FROM acc WHERE id=?',(acc_id,))",Safe
+"token = secrets.token_hex(32)",Safe
+"subprocess.run(['mkdir','-p',folder_path])",Safe
