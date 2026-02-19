@@ -22,7 +22,13 @@ class VulnerabilityClassifier:
         else :
             probability = None 
 
+        if probability is not None and probability < 0.60:
+            final_label = "Suspicious"
+        else:
+            final_label = prediction
+
+
         return {
-            "label" : prediction,
+            "label" : final_label,
             "Confidence" : probability
         }
