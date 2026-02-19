@@ -1,18 +1,19 @@
 from agents.classifier_agent import VulnerabilityClassifier
-
+from agents.risk_agent import RiskScorer
 
 classifier = VulnerabilityClassifier(
     model_path="ml/models/final_model.pkl",
     vectorizer_path="ml/models/vectorizer.pkl"
 )
 
+risk_agent = RiskScorer()
 
+snippet = "cursor.execute('SELECT * FROM users WHERE id=' + user_id)"
 
-# test_code = "password = os.getenv('DB_PASSWORD')"
-# result = classifier.predict(test_code)
+result = classifier.predict(snippet)
+risk_result = risk_agent.calculate_risk(
+    result["label"],
+    result["confidence"]
+)
 
-# print(result)
-print(classifier.predict("password = 'admin123'"))
-print(classifier.predict("os.system('rm -rf ' + user_input)"))
-print(classifier.predict("cursor.execute('SELECT * FROM users WHERE id=' + user_id)"))
-print(classifier.predict("password = os.getenv('DB_PASSWORD')"))
+print(risk_result)

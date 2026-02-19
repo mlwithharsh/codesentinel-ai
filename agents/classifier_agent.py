@@ -30,5 +30,5 @@ class VulnerabilityClassifier:
 
         return {
             "label" : final_label,
-            "Confidence" : probability
+            "confidence" : probability
         }
